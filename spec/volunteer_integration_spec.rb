@@ -1,5 +1,6 @@
 require "capybara/rspec"
-require "./app"
+require "./tracker"
+require 'sinatra'
 require "pry"
 require('spec_helper')
 
