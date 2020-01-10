@@ -17,7 +17,7 @@ describe Project do
     it 'returns the id of the project after saving project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-      # puts project.id.class => this returns as Fixnum, which is inherits from Integer 
+      # puts project.id.class => this returns as Fixnum, which inherits from Integer 
       # Change Integer to Fixnum in response to this thread: https://stackoverflow.com/questions/21372649/what-is-the-difference-between-integer-and-fixnum
       expect(project.id).to be_an_instance_of Fixnum
     end
@@ -53,15 +53,15 @@ describe Project do
     end
   end
 
-#   describe '.find' do
-#     it 'returns a project by id' do
-#       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-#       project1.save
-#       project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
-#       project2.save
-#       expect(Project.find(project1.id)).to eq project1
-#     end
-#   end
+  describe '.find' do
+    it 'returns a project by id' do
+      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project1.save
+      project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+      project2.save
+      expect(Project.find(project1.id)).to eq project1
+    end
+  end
 
 #   describe '#volunteers' do
 #     it 'returns all volunteers for a specific project' do
