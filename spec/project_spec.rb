@@ -17,7 +17,9 @@ describe Project do
     it 'returns the id of the project after saving project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-      expect(project.id).to be_an_instance_of Integer
+      # puts project.id.class => this returns as Fixnum, which is inherits from Integer 
+      # Change Integer to Fixnum in response to this thread: https://stackoverflow.com/questions/21372649/what-is-the-difference-between-integer-and-fixnum
+      expect(project.id).to be_an_instance_of Fixnum
     end
   end
 
