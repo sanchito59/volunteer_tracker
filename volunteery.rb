@@ -8,6 +8,7 @@ also_reload('lib/**/*.rb')
 
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
+# Projects
 get('/') do
     redirect to('/projects')
 end
@@ -33,7 +34,7 @@ get('/projects/:id') do
     if @project != nil
         erb(:project)
     else
-        erb(:no_project)
+        erb(:no_project_error)
     end
 end
 
@@ -52,4 +53,21 @@ delete('/projects/:id') do
     @project = Project.find(params[:id].to_i())
     @project.delete()
     redirect to('/projects')
+end
+
+# Volunteers
+get('/projects/:id/volunteers/:volunteer_id')do
+    @volunteer = Volunteer.find(params[:volunteer_id].to_i())
+    if @volunteer != nil
+        erb(:volunteer)
+    else
+        erb(:no_volunteer_error)
+    end
+end
+
+post('/projects/:id') do
+    @project = Project.find(params[:id].to_i())
+    volunteer = Volunteer.new( { :name => params[:volunteer_name], :project_id => @project.id, :id => nil } )
+    volunteer.save()
+    erb(:project)
 end
