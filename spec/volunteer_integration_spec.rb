@@ -31,7 +31,7 @@ describe 'the project creation path', {:type => :feature} do
   end
 end
 
-# If the user accidentally goes to a non-existent page ID there is an error page that will prompt them to create a project or return home.
+# If the user goes to a non-existent page ID there is an error page that will prompt them to create a project or return home.
 
 describe 'the non-existent project page', {:type => :feature} do
   it 'prompts a user to create a project or return home' do
@@ -43,7 +43,6 @@ describe 'the non-existent project page', {:type => :feature} do
   end
 end
 
-
 # # A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)
 
 describe 'the project update path', {:type => :feature} do
@@ -51,7 +50,7 @@ describe 'the project update path', {:type => :feature} do
     test_project = Project.new({:title => 'Teaching Jr. Developers Database Design', :id => nil})
     test_project.save
     id = test_project.id
-    visit "/projects/#{id}"
+    visit "/projects/#{id}/edit"
     expect(page).to have_content('Teaching Jr. Developers Database Design')
     fill_in('project_title', :with => 'Teaching Sr. Developers New Trends in Database Design')
     click_button('Update')
@@ -66,7 +65,7 @@ describe 'the project delete path', {:type => :feature} do
     test_project = Project.new({:title => 'Teaching Jr. Developers Database Design', :id => nil})
     test_project.save
     id = test_project.id
-    visit "/projects/#{id}"
+    visit "/projects/#{id}/edit"
     expect(page).to have_content('Teaching Jr. Developers Database Design')
     click_button('Delete')
     expect(page).to have_content('There are currently no projects.')
