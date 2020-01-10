@@ -75,7 +75,7 @@ end
 # # The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to fill in the form with a volunteer, click 'Add volunteer', and see the volunteer added.
 
 describe 'the volunteer detail page path', {:type => :feature} do
-  it 'shows a volunteer detail page and adds another volunteer' do
+  it 'shows a project detail page and adds another volunteer' do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
     test_project.save
     project_id = test_project.id.to_i
@@ -86,5 +86,22 @@ describe 'the volunteer detail page path', {:type => :feature} do
     click_button('Add Volunteer')
     expect(page).to have_content('Jane')
     expect(page).to have_content('Jasmine')
+  end
+end
+
+# The user should be able to go to the invididual project volunteer page and update the name or delete the volunteer. 
+describe 'the volunteer detail page path', {:type => :feature} do
+  it 'shows a volunteer detail page' do
+    test_project = Project.new({:title => 'How To Win At Mario Kart', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Yoshi', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/projects/#{project_id}"
+    click_on('Yoshi')
+    expect(page).to have_content('Volunteer: Yoshi')
+    fill_in('volunteer_name', :with => 'Waluigi')
+    click_button('Update Volunteer')
+    expect(page).to have_content('Waluigi')
   end
 end
