@@ -22,9 +22,14 @@ class Volunteer
             name = volunteer.fetch("name")
             project_id = volunteer.fetch("project_id").to_i
             id = volunteer.fetch("id").to_i
-            volunteers.push(volunteer.new({:name => name, :project_id => project_id, :id => id}))
+            volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
         end
         volunteers
+    end
+
+    def save
+        result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) returning id;")
+        @id = result.first.fetch("id").to_i
     end
 
 end
