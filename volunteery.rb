@@ -66,7 +66,6 @@ get('/projects/:id/volunteers/:volunteer_id')do
 end
 
 get('/projects/:id/volunteers/:volunteer_id') do
-    # @project = Project.find(params[:id].to_i())
     @project = Project.new({ :title => "Help Kids", :id => nil})
     @volunteer = Volunteer.find(params[:volunteer_id].to_i())
     if @volunteer != nil
@@ -90,5 +89,12 @@ patch('/projects/:id/volunteers/:volunteer_id')do
     @project = Project.find(params[:id].to_i())
     volunteer = Volunteer.find(params[:volunteer_id].to_i())
     volunteer.update(params[:volunteer_name], @project.id)
+    erb(:project)
+end
+
+delete('/projects/:id/volunteers/:volunteer_id') do
+    volunteer = Volunteer.find(params[:volunteer_id].to_i())
+    volunteer.delete
+    @project = Project.find(params[:id].to_i())
     erb(:project)
 end
