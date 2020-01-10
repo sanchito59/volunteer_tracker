@@ -1,0 +1,29 @@
+body {
+    background-color: lightslategray;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    background-color: lightyellow;
+    padding: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.navigation-link {
+    font-weight: bold;
+}
+
+.navigation-link:hover {
+    font-style: italic;
+}
+
+#create-or-add-button {
+    background-color: rgb(148, 153, 119);
+    color: white;
+}
+
+#create-or-add-button:hover {
+    background-color: rgb(109, 114, 87);
+}

@@ -20,8 +20,8 @@
     <label for="volunteer_name">Volunteer name: </label>
     <input id="volunteer_name" name="volunteer_name" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Add Volunteer</button>
+  <button type="submit" class="btn" id='create-or-add-button'>Add Volunteer</button>
 </form>
 
 <p><a href="/projects/<%= @project.id %>/edit">Edit project</a></p>
-<p><a href="/projects">View All Projects</a></p>
+<p><a href="/projects" class="navigation-link">View All Projects</a></p>

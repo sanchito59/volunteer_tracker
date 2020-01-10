@@ -1,24 +1,24 @@
 <h1>Volunteery</h1>
+<hr>
 
 <h3>Current Projects</h3>
-
-<form action="/projects">
-  <div class="form-group">
-    <label for="search">Search</label>
-    <input id="search" title="search" class="form-control" type="text">
-  </div>
-  <button type="submit" class="btn">Search</button>
-</form>
 <hr>
 
 <% if @projects.any? %>
+  <form action="/projects">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input id="search" title="search" class="form-control" type="text">
+    </div>
+    <button type="submit" class="btn btn-info">Search</button>
+  </form>
   <ul>
     <% @projects.each do |project| %>
       <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
     <% end %>
   </ul>
-  <a href="/projects/new">Add a new project</a>
+  <a href="/projects/new" class="navigation-link">Add a new project</a>
 <% else %>
   <p>There are currently no projects.</p>
-  <a href="/projects/new">Let's set one up!</a>
+  <a href="/projects/new" class="navigation-link">Let's set one up!</a>
 <% end %>
