@@ -65,9 +65,30 @@ get('/projects/:id/volunteers/:volunteer_id')do
     end
 end
 
+get('/projects/:id/volunteers/:volunteer_id') do
+    # @project = Project.find(params[:id].to_i())
+    @project = Project.new({ :title => "Help Kids", :id => nil})
+    @volunteer = Volunteer.find(params[:volunteer_id].to_i())
+    if @volunteer != nil
+      erb(:volunteer)
+    else
+      # Need to define @project and reference the project id to use in no_volunteer_error.erb
+      @project = Project.find(params[:id].to_i())
+      erb(:no_volunteer_error)
+    end
+  end
+
+# Post volunteer to project page
 post('/projects/:id') do
     @project = Project.find(params[:id].to_i())
     volunteer = Volunteer.new( { :name => params[:volunteer_name], :project_id => @project.id, :id => nil } )
     volunteer.save()
+    erb(:project)
+end
+
+patch('/projects/:id/volunteers/:volunteer_id')do
+    @project = Project.find(params[:id].to_i())
+    volunteer = Volunteer.find(params[:volunteer_id].to_i())
+    volunteer.update(params[:volunteer_name], @project.id)
     erb(:project)
 end
