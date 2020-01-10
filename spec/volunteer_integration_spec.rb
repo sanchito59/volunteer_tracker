@@ -1,5 +1,5 @@
 require "capybara/rspec"
-require "./tracker"
+require "./volunteery"
 require 'sinatra'
 require "pry"
 require('spec_helper')
@@ -10,6 +10,16 @@ set(:show_exceptions, false)
 # Your project should be set up so that a volunteer can only be created if a project already exists. (This makes it easier to assign the one to many relationship in Sinatra.) Focus on getting one integration spec passing at a time.
 
 # The user should be able to visit the home page and fill out a form to add a new project. When that project is created, the application should direct them back to the homepage.
+
+describe 'the homepage', {:type => :feature} do
+  it 'takes the user to the homepage where they can see a list of projects or and be prompted to create more' do
+    visit '/'
+    expect(page).to have_content('Volunteery')
+    expect(page).to have_content('Current Projects')
+    click_on("Let's set one up!")
+    expect(page).to have_content('Create a project today!')
+  end
+end
 
 # describe 'the project creation path', {:type => :feature} do
 #   it 'takes the user to the homepage where they can create a project' do
