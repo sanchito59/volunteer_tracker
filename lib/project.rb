@@ -45,4 +45,9 @@ class Project
         Volunteer.find_by_project(self.id)
     end
 
+    def update(title)
+        @title = title
+        DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{id}")   
+    end
+
 end
