@@ -31,6 +31,19 @@ describe 'the project creation path', {:type => :feature} do
   end
 end
 
+# If the user accidentally goes to a non-existent page ID there is an error page that will prompt them to create a project or return home.
+
+describe 'the non-existent project page', {:type => :feature} do
+  it 'prompts a user to create a project or return home' do
+    visit '/projects/non_existent_numeric_id'
+    expect(page).to have_content("Uh oh, that project doesn't seem to exist, would you like to create it?")
+    fill_in('project_title', :with => 'Build Your First Platformer Video Game')
+    click_button('Create Project')
+    expect(page).to have_content('Build Your First Platformer Video Game')
+  end
+end
+
+
 # # A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)
 
 # describe 'the project update path', {:type => :feature} do
