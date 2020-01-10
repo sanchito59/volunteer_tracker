@@ -1,0 +1,13 @@
+<h2>Uh oh, that volunteer doesn't seem to exist, would you like to sign them up it?</h2>
+
+<form action="/projects/<%= @project.id %>/volunteers" method="post">
+  <div class="form-group">
+    <label for="volunteer_name">Volunteer name</label>
+    <input id="volunteer_name" name="Volunteer_name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Add volunteer</button>
+</form>
+
+<p><a href="/projects/<%= @project.id %>/edit">Edit project</a></p>
+
+<h4><a href="/projects">Return home!</h4>
