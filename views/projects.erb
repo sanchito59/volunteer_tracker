@@ -4,14 +4,19 @@
 <h3>Current Projects</h3>
 <hr>
 
+
+<form action="/projects" method="get">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-info">Search</button>
+</form>
+<form action="/projects" method="get">
+  <button type="submit" name="sort" class="btn sort-button">A-Z <i class="fas fa-sort"></i>
+</button>
+</form>
 <% if @projects.any? %>
-  <form action="/projects">
-    <div class="form-group">
-      <label for="search">Search</label>
-      <input id="search" title="search" class="form-control" type="text">
-    </div>
-    <button type="submit" class="btn btn-info">Search</button>
-  </form>
   <ul>
     <% @projects.each do |project| %>
       <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>

@@ -27,3 +27,14 @@ body {
 #create-or-add-button:hover {
     background-color: rgb(109, 114, 87);
 }
+
+.sort-button {
+    background-color: rgb(95, 128, 31);
+    color: white;
+    margin: 15px 0;
+}
+
+.sort-button:hover {
+    background-color: rgb(64, 85, 21);
+    color: white;
+}
