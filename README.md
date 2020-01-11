@@ -4,6 +4,7 @@
 
 Volunteery is a CRUD (Create, Read, Update, Delete) application built for non-profit employees to create Projects and add Volunteers to them. It servers as an internal website to track volunteers working on projects for a site manager.
 
+![screenshot of landing page for project website](https://i.imgur.com/XnAoj29.png "read")
 
 ### User Stories
 - As a non-profit employee, I want to view, add, update, and delete projects.
@@ -12,7 +13,7 @@ Volunteery is a CRUD (Create, Read, Update, Delete) application built for non-pr
 - - - -
 ### Setup/Installation Requirements
 
-![enter image description here](https://i.imgur.com/UStodOA.jpg "read")
+![image of Github repository file system](https://i.imgur.com/UStodOA.jpg "read")
 
 #### Zip:
 
