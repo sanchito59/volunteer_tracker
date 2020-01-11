@@ -2,7 +2,7 @@
 
 ## By **Chris Sanchez**
 
-Volunteery is a CRUD (Create, Read, Update, Delete) application built for non-profit employees to create Projects and add Volunteers to them. It servers as an internal website to track volunteers working on projects for a site manager.
+Volunteery is a CRUD (Create, Read, Update, Delete) application built for non-profit employees to create Projects and add Volunteers to them. It servers as an internal website to track volunteers working on projects for a site manager. Administrators can create multiple projects, and from the homepage sort them alphabetically, or search for projects returning partial or full matches. The projects can have their titles updated, and projects can be deleted altogether, which is reflected in the database. Administrators can also create volunteers for each project, and update their names or delete them from the project- these changes are also reflected in the database.
 
 ![screenshot of landing page for project website](https://i.imgur.com/XnAoj29.png "read")
 
@@ -41,9 +41,10 @@ Volunteery is a CRUD (Create, Read, Update, Delete) application built for non-pr
 |(Read/GET)|User is on the homepage. |Homepage displays a list of all projects, or if there aren't any: 'There are currently no projects. Let's set one up!'|
 |(Create/POST) User adds a project to the catalogue of projects. |'Teaching Kids to Code: Ruby'|The homepage now has the project added, and so does the database.|
 |(Read/GET)|User is on the project page. |Project page displays a list of all volunteers, or if there aren't any: 'There are no volunteers listed for this project yet.' Included is the ability to add a volunteer to a project.|
+|(Update/PATCH) User changes the project title. |'Teaching Kids To Code: Ruby and PostgreSQL'|The homepage now reflects the changes, and so does the database.|
 |(Create/POST) User adds a volunteer to the list of volunteers on a specific project. |'Mike Smith' is added to the project 'Teaching Kids to Code: Ruby'|The Project page now has the volunteer added, and so does the database.|
-|(Update/PATCH) User changes the project. |'Teaching Kids To Code: Ruby and PostgreSQL'|The homepage now reflects the changes, and so does the database.|
-|(Delete/DELETE)|The user removes a volunteer from a project. |'Mike Smith'|The project page now reflects the changes, and so does the database.|
+|(Update/PATCH) User changes the volunteer's name. |'Michael Smith'|The project page now reflects the changes, and so does the database.|
+|(Delete/DELETE)|The user removes a volunteer from a project. |'Michael Smith'|The project page now reflects the changes, and so does the database.|
 |(Delete/DELETE)|The user deletes a project. |The homepage and database no longer have the project.|
 - - - -
 
