@@ -17,6 +17,11 @@ class Project
         projects
     end
 
+    def self.sort()
+        projects = Project.all
+        projects.sort { |a, b| a.title <=> b.title }
+    end
+
     def ==(project_to_compare)
         if project_to_compare != nil
             self.title() == project_to_compare.title()
@@ -39,6 +44,11 @@ class Project
         else
             nil
         end        
+    end
+
+    def self.search(search_term)
+        projects = Project.all
+        projects.select {|e| /#{search_term}/i.match? e.title}
     end
 
     def volunteers

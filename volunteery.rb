@@ -14,7 +14,13 @@ get('/') do
 end
 
 get('/projects') do
-    @projects = Project.all
+    if params["search"]
+      @projects = Project.search(params[:search])
+    elsif params["sort"]
+      @projects = Project.sort()
+    else
+      @projects = Project.all
+    end
     erb(:projects)
 end
 
