@@ -47,7 +47,7 @@ Administrators can create multiple projects, and from the homepage sort them alp
 |(Create/POST) User adds a volunteer to the list of volunteers on a specific project. |'Mike Smith' is added to the project 'Teaching Kids to Code: Ruby'|The Project page now has the volunteer added, and so does the database.|
 |(Update/PATCH) User changes the volunteer's name. |'Michael Smith'|The project page now reflects the changes, and so does the database.|
 |(Delete/DELETE) The user removes a volunteer from a project. |'Michael Smith'|The project page now reflects the changes, and so does the database.|
-|(Delete/DELETE)|The user deletes a project. |The homepage and database no longer have the project.|
+|(Delete/DELETE) The user deletes a project. |'Teaching Kids To Code: Ruby and PostgreSQL'|The homepage and database no longer have the project.|
 - - - -
 
 ### Technologies Used
