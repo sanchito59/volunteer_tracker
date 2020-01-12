@@ -48,7 +48,8 @@ class Project
 
     def self.search(search_term)
         projects = Project.all
-        projects.select {|e| /#{search_term}/i.match? e.title}
+        # had some issues on a personal project of mine installing gems and having SSL issues, in the process I uninstalled the culprit gems, launched this again to confirm I didn't break it, and saw that 'match?' was now undefined, this works altered, but may need to be changed to 'match?' to work again
+        projects.select {|e| /#{search_term}/i.match e.title}
     end
 
     def volunteers
