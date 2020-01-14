@@ -32,7 +32,7 @@ Administrators can create multiple projects, and from the homepage sort them alp
  1. To clone the repository, from your terminal or command line enter: "git clone  https://github.com/sanchito59/volunteery.git"
  2. Once the repository finishes downloading you will need to navigate to it in the terminal/command line.
  5. With NPM and Ruby 2.5.1 installed, and within the folder, run `bundle install`.
- 6. Finally, run `ruby script.rb` to use **Volunteery**.
+ 6. Finally, run `ruby volunteery.rb` to use **Volunteery**.
 
 - - - -
 
